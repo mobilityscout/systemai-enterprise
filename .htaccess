@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^api/save-dashboard$ api.php [L]

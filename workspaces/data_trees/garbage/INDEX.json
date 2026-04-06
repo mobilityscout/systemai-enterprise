@@ -1,0 +1,27 @@
+{
+    "category": "garbage",
+    "description": "Identified Garbage (Ready for Cleanup)",
+    "count": 4,
+    "files": [
+        {
+            "name": "system.log",
+            "path": "\/var\/www\/aicore\/logs\/system.log",
+            "size_mb": 0
+        },
+        {
+            "name": "systemai_autonomous.log",
+            "path": "\/var\/www\/systemai\/logs\/systemai_autonomous.log",
+            "size_mb": 0
+        },
+        {
+            "name": "systemai_errors.log",
+            "path": "\/var\/www\/systemai\/logs\/systemai_errors.log",
+            "size_mb": 0.01
+        },
+        {
+            "name": "systemai_recovery.log",
+            "path": "\/var\/www\/systemai\/logs\/systemai_recovery.log",
+            "size_mb": 0
+        }
+    ]
+}

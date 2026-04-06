@@ -1,0 +1,152 @@
+<?php
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
+
+// ===== AUTO-REPAIR =====
+if (isset($_GET['api']) && $_GET['api'] === 'auto-repair') {
+    $errors = [];
+    $repairs = [];
+    
+    // Scan error logs
+    $log_files = [
+        '/var/log/nginx/error.log',
+        '/var/log/syslog'
+    ];
+    
+    foreach ($log_files as $logfile) {
+        if (!file_exists($logfile)) continue;
+        
+        $lines = array_reverse(array_slice(file($logfile), -100));
+        foreach ($lines as $line) {
+            if (stripos($line, '[error]') !== false || stripos($line, 'error') !== false) {
+                $errors[] = [
+                    'file' => basename($logfile),
+                    'message' => trim($line),
+                    'time' => date('Y-m-d H:i:s')
+                ];
+            }
+        }
+    }
+    
+    // Try to fix PHP-FPM
+    $phpfpm_status = trim(shell_exec('systemctl is-active php-fpm 2>&1'));
+    if ($phpfpm_status !== 'active') {
+        shell_exec('systemctl start php-fpm 2>&1');
+        sleep(1);
+        $phpfpm_status = trim(shell_exec('systemctl is-active php-fpm 2>&1'));
+        $repairs[] = [
+            'action' => 'PHP-FPM restart',
+            'status' => $phpfpm_status === 'active' ? '✅ Fixed' : '❌ Failed'
+        ];
+    }
+    
+    // Try to fix Nginx
+    $nginx_status = trim(shell_exec('systemctl is-active nginx 2>&1'));
+    if ($nginx_status !== 'active') {
+        shell_exec('systemctl start nginx 2>&1');
+        sleep(1);
+        $nginx_status = trim(shell_exec('systemctl is-active nginx 2>&1'));
+        $repairs[] = [
+            'action' => 'Nginx restart',
+            'status' => $nginx_status === 'active' ? '✅ Fixed' : '❌ Failed'
+        ];
+    }
+    
+    // Check PostgreSQL
+    $pg_status = trim(shell_exec('systemctl is-active postgresql 2>&1'));
+    $repairs[] = [
+        'action' => 'PostgreSQL status',
+        'status' => $pg_status === 'active' ? '✅ Running' : '⚠️ Not running'
+    ];
+    
+    echo json_encode([
+        'timestamp' => date('Y-m-d H:i:s'),
+        'errors_found' => count(array_unique($errors, SORT_REGULAR)),
+        'recent_errors' => array_slice($errors, 0, 10),
+        'repairs_attempted' => $repairs,
+        'services' => [
+            'php-fpm' => $phpfpm_status,
+            'nginx' => $nginx_status,
+            'postgresql' => $pg_status
+        ]
+    ]);
+    exit;
+}
+
+// ===== SERVER STATUS =====
+if (isset($_GET['api']) && $_GET['api'] === 'server-status') {
+    $disk = disk_total_space('/');
+    $disk_free = disk_free_space('/');
+    $disk_used = $disk - $disk_free;
+    
+    echo json_encode([
+        'timestamp' => date('Y-m-d H:i:s'),
+        'disk_usage' => [
+            'total' => $disk,
+            'used' => $disk_used,
+            'free' => $disk_free,
+            'percent' => round(($disk_used / $disk) * 100, 2),
+            'formatted' => formatBytes($disk_used) . ' / ' . formatBytes($disk)
+        ],
+        'db_status' => [
+            'status' => trim(shell_exec('systemctl is-active postgresql 2>&1'))
+        ],
+        'fragments_total' => count(glob('/var/www/systemai/**/*', GLOB_RECURSIVE)),
+        'backups' => [
+            'total' => count(glob('/var/www/systemai/backups/*')),
+            'total_size' => getDirSize('/var/www/systemai/backups')
+        ]
+    ]);
+    exit;
+}
+
+// ===== SCAN FRAGMENTS =====
+if (isset($_GET['api']) && $_GET['api'] === 'scan-fragments') {
+    $files = glob('/var/www/systemai/**/*.{php,py,js,json,sql}', GLOB_BRACE | GLOB_RECURSIVE);
+    $fragments = [];
+    
+    foreach (array_slice($files, 0, 50) as $file) {
+        $fragments[] = [
+            'path' => str_replace('/var/www/systemai/', '', $file),
+            'size' => filesize($file),
+            'modified' => date('Y-m-d H:i:s', filemtime($file))
+        ];
+    }
+    
+    echo json_encode([
+        'total' => count($files),
+        'scanned' => count($fragments),
+        'fragments' => $fragments
+    ]);
+    exit;
+}
+
+// ===== DEFAULT =====
+header('Location: /management-console.html');
+exit;
+
+function formatBytes($bytes) {
+    $units = ['B', 'KB', 'MB', 'GB'];
+    $bytes = max($bytes, 0);
+    $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
+    $pow = min($pow, count($units) - 1);
+    $bytes /= (1 << (10 * $pow));
+    return round($bytes, 2) . ' ' . $units[$pow];
+}
+
+function getDirSize($dir) {
+    $size = 0;
+    if (is_dir($dir)) {
+        foreach (glob($dir . '/*') as $file) {
+            if (is_file($file)) $size += filesize($file);
+            else $size += getDirSize($file);
+        }
+    }
+    return $size;
+}
+?>

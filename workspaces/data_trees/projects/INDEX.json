@@ -1,0 +1,12 @@
+{
+    "category": "projects",
+    "description": "Discovered Projects",
+    "count": 1,
+    "files": [
+        {
+            "name": "requirements.txt",
+            "path": "\/var\/www\/aicore\/requirements.txt",
+            "size_mb": 0
+        }
+    ]
+}

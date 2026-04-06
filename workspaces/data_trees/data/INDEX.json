@@ -1,0 +1,302 @@
+{
+    "category": "data",
+    "description": "Data Files",
+    "count": 59,
+    "files": [
+        {
+            "name": "config.py",
+            "path": "\/var\/www\/aicore\/config.py",
+            "size_mb": 0
+        },
+        {
+            "name": "main.py",
+            "path": "\/var\/www\/aicore\/main.py",
+            "size_mb": 0
+        },
+        {
+            "name": "Activate.ps1",
+            "path": "\/var\/www\/aicore\/venv\/bin\/Activate.ps1",
+            "size_mb": 0.01
+        },
+        {
+            "name": "activate",
+            "path": "\/var\/www\/aicore\/venv\/bin\/activate",
+            "size_mb": 0
+        },
+        {
+            "name": "activate.csh",
+            "path": "\/var\/www\/aicore\/venv\/bin\/activate.csh",
+            "size_mb": 0
+        },
+        {
+            "name": "activate.fish",
+            "path": "\/var\/www\/aicore\/venv\/bin\/activate.fish",
+            "size_mb": 0
+        },
+        {
+            "name": "dotenv",
+            "path": "\/var\/www\/aicore\/venv\/bin\/dotenv",
+            "size_mb": 0
+        },
+        {
+            "name": "flask",
+            "path": "\/var\/www\/aicore\/venv\/bin\/flask",
+            "size_mb": 0
+        },
+        {
+            "name": "pip",
+            "path": "\/var\/www\/aicore\/venv\/bin\/pip",
+            "size_mb": 0
+        },
+        {
+            "name": "pip3",
+            "path": "\/var\/www\/aicore\/venv\/bin\/pip3",
+            "size_mb": 0
+        },
+        {
+            "name": "pip3.12",
+            "path": "\/var\/www\/aicore\/venv\/bin\/pip3.12",
+            "size_mb": 0
+        },
+        {
+            "name": "python",
+            "path": "\/var\/www\/aicore\/venv\/bin\/python",
+            "size_mb": 7.65
+        },
+        {
+            "name": "python3",
+            "path": "\/var\/www\/aicore\/venv\/bin\/python3",
+            "size_mb": 7.65
+        },
+        {
+            "name": "python3.12",
+            "path": "\/var\/www\/aicore\/venv\/bin\/python3.12",
+            "size_mb": 7.65
+        },
+        {
+            "name": "typing_extensions.py",
+            "path": "\/var\/www\/aicore\/venv\/lib\/python3.12\/site-packages\/typing_extensions.py",
+            "size_mb": 0.15
+        },
+        {
+            "name": "pyvenv.cfg",
+            "path": "\/var\/www\/aicore\/venv\/pyvenv.cfg",
+            "size_mb": 0
+        },
+        {
+            "name": "index.html",
+            "path": "\/var\/www\/chatcore\/index.html",
+            "size_mb": 0
+        },
+        {
+            "name": "index.html",
+            "path": "\/var\/www\/html\/chatcore\/index.html",
+            "size_mb": 0
+        },
+        {
+            "name": "onboarding.html",
+            "path": "\/var\/www\/platform\/public\/onboarding.html",
+            "size_mb": 0.06
+        },
+        {
+            "name": ".htaccess",
+            "path": "\/var\/www\/systemai\/.htaccess",
+            "size_mb": 0
+        },
+        {
+            "name": ".setup_complete",
+            "path": "\/var\/www\/systemai\/.setup_complete",
+            "size_mb": 0
+        },
+        {
+            "name": "actions.php",
+            "path": "\/var\/www\/systemai\/actions.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "orchestration.php",
+            "path": "\/var\/www\/systemai\/api\/orchestration.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "api.php",
+            "path": "\/var\/www\/systemai\/api.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "architect.php",
+            "path": "\/var\/www\/systemai\/architect.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "auto-repair-manager.php",
+            "path": "\/var\/www\/systemai\/auto-repair-manager.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "SystemBootDaemon.php",
+            "path": "\/var\/www\/systemai\/boot\/SystemBootDaemon.php",
+            "size_mb": 0.02
+        },
+        {
+            "name": "boot_service.php",
+            "path": "\/var\/www\/systemai\/boot\/boot_service.php",
+            "size_mb": 0
+        },
+        {
+            "name": "boot.html",
+            "path": "\/var\/www\/systemai\/boot.html",
+            "size_mb": 0.01
+        },
+        {
+            "name": "api-gateway.php",
+            "path": "\/var\/www\/systemai\/enterprise\/api-gateway.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "monitoring.php",
+            "path": "\/var\/www\/systemai\/enterprise\/monitoring.php",
+            "size_mb": 0
+        },
+        {
+            "name": "service-registry.php",
+            "path": "\/var\/www\/systemai\/enterprise\/service-registry.php",
+            "size_mb": 0
+        },
+        {
+            "name": "task-queue-distributed.php",
+            "path": "\/var\/www\/systemai\/enterprise\/task-queue-distributed.php",
+            "size_mb": 0
+        },
+        {
+            "name": "executor.php",
+            "path": "\/var\/www\/systemai\/executor.php",
+            "size_mb": 0
+        },
+        {
+            "name": "file-analyzer.php",
+            "path": "\/var\/www\/systemai\/file-analyzer.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "fragment-analyzer.php",
+            "path": "\/var\/www\/systemai\/fragment-analyzer.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "index.html.backup",
+            "path": "\/var\/www\/systemai\/index.html.backup",
+            "size_mb": 0
+        },
+        {
+            "name": "index.html.old",
+            "path": "\/var\/www\/systemai\/index.html.old",
+            "size_mb": 0.02
+        },
+        {
+            "name": "index.php",
+            "path": "\/var\/www\/systemai\/index.php",
+            "size_mb": 0.03
+        },
+        {
+            "name": "index.php.backup",
+            "path": "\/var\/www\/systemai\/index.php.backup",
+            "size_mb": 0.02
+        },
+        {
+            "name": "index.php.bak",
+            "path": "\/var\/www\/systemai\/index.php.bak",
+            "size_mb": 0
+        },
+        {
+            "name": "index.php.broken",
+            "path": "\/var\/www\/systemai\/index.php.broken",
+            "size_mb": 0.01
+        },
+        {
+            "name": "index.php.old",
+            "path": "\/var\/www\/systemai\/index.php.old",
+            "size_mb": 0
+        },
+        {
+            "name": "PrincipleAIManager.php",
+            "path": "\/var\/www\/systemai\/managers\/PrincipleAIManager.php",
+            "size_mb": 0
+        },
+        {
+            "name": "ProjectAIManager.php",
+            "path": "\/var\/www\/systemai\/managers\/ProjectAIManager.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "SystemAIAutonomous.php",
+            "path": "\/var\/www\/systemai\/managers\/SystemAIAutonomous.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "SystemAIManager.php",
+            "path": "\/var\/www\/systemai\/managers\/SystemAIManager.php",
+            "size_mb": 0.02
+        },
+        {
+            "name": "module-inventory.php",
+            "path": "\/var\/www\/systemai\/module-inventory.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "principle.php",
+            "path": "\/var\/www\/systemai\/principle.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "router.php",
+            "path": "\/var\/www\/systemai\/router.php",
+            "size_mb": 0
+        },
+        {
+            "name": "server-manager.php",
+            "path": "\/var\/www\/systemai\/server-manager.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "setup_wizard.php",
+            "path": "\/var\/www\/systemai\/setup_wizard.php",
+            "size_mb": 0.03
+        },
+        {
+            "name": "system_inventory.php",
+            "path": "\/var\/www\/systemai\/system_inventory.php",
+            "size_mb": 0
+        },
+        {
+            "name": "test.php",
+            "path": "\/var\/www\/systemai\/test.php",
+            "size_mb": 0
+        },
+        {
+            "name": "ui.php",
+            "path": "\/var\/www\/systemai\/ui.php",
+            "size_mb": 0.01
+        },
+        {
+            "name": "upload-api.php",
+            "path": "\/var\/www\/systemai\/upload-api.php",
+            "size_mb": 0
+        },
+        {
+            "name": "worker_analyzer.php",
+            "path": "\/var\/www\/systemai\/worker_analyzer.php",
+            "size_mb": 0
+        },
+        {
+            "name": "worker_fixer.php",
+            "path": "\/var\/www\/systemai\/worker_fixer.php",
+            "size_mb": 0
+        },
+        {
+            "name": "worker_fixer_real.php",
+            "path": "\/var\/www\/systemai\/worker_fixer_real.php",
+            "size_mb": 0
+        }
+    ]
+}

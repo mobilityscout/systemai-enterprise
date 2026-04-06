@@ -1,0 +1,27 @@
+{
+    "timestamp": "2026-04-06 18:03:47",
+    "total_files": 4,
+    "total_size_mb": 0.015017509460449219,
+    "files": [
+        {
+            "path": "\/var\/www\/systemai\/logs\/systemai_errors.log",
+            "size_mb": 0.01,
+            "type": "log"
+        },
+        {
+            "path": "\/var\/www\/aicore\/logs\/system.log",
+            "size_mb": 0,
+            "type": "log"
+        },
+        {
+            "path": "\/var\/www\/systemai\/logs\/systemai_autonomous.log",
+            "size_mb": 0,
+            "type": "log"
+        },
+        {
+            "path": "\/var\/www\/systemai\/logs\/systemai_recovery.log",
+            "size_mb": 0,
+            "type": "log"
+        }
+    ]
+}
